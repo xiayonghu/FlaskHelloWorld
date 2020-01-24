@@ -17,4 +17,9 @@ az aks get-credentials --resource-group PocResourceGroup --name PocAKSCluster
 // List nodes
 kubectl get nodes
 
+// Use git to clone the repository to your local machine
+git clone https://github.com/xiayonghu/FlaskHelloWorld.git
 
+cd FlaskHelloWorld/app
+
+docker build -f Dockerfile .
