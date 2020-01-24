@@ -1,0 +1,20 @@
+git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+
+
+az group create --name PocResourceGroup --location eastus
+az acr create --resource-group PocResourceGroup --name PocContainerAcr --sku Basic
+az acr list
+az acr login --name PocContainerAcr
+az acr list --resource-group PocResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+az acr repository list --name PocContainerAcr --output table
+
+// Create Kubernetes Cluster
+az aks create --resource-group PocResourceGroup --name PocAKSCluster --node-count 2 --generate-ssh-keys --attach-acr PocContainerAcr
+
+// Connect to cluster using kubectl
+az aks get-credentials --resource-group PocResourceGroup --name PocAKSCluster
+
+// List nodes
+kubectl get nodes
+
+
