@@ -22,4 +22,10 @@ git clone https://github.com/xiayonghu/FlaskHelloWorld.git
 
 cd FlaskHelloWorld/app
 
-docker build -f Dockerfile .
+
+//Build Docker Image and specify name as flaskhellowworld tag as latest
+docker build -f Dockerfile -t flaskhellowworld:latest .
+
+
+docker images ls
+docker run -p 5001:5000 flaskhellowworld
