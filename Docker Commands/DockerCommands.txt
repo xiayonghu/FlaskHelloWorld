@@ -1,0 +1,10 @@
+docker build --rm -f "Dockerfile" -t flaskhelloworld:latest "."
+
+
+docker images
+
+docker run -d flaskhelloworld
+
+ docker build -t simple-flask-app:latest .
+
+ docker run -d -p 5001:5001 flaskhelloworld
